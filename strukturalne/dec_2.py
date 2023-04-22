@@ -1,0 +1,17 @@
+class Power(object):
+	def __init__(self, arg):
+		self._arg = arg
+
+	def __call__(self, a, b):
+		print("called from power class")
+		retval = self._arg(a, b)
+		return retval ** 2
+
+
+@Power
+def multiply_together(a, b):
+	return a * b
+
+
+print(multiply_together)
+print(multiply_together(2, 2))
