@@ -41,7 +41,6 @@ class Observer(ABC):
 
 
 class ConcreteObserver(Observer):
-
     def update(self, arg):
         self._observer_state = arg
         print(f"Subject state changed: {arg}")

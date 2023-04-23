@@ -29,7 +29,13 @@ class Families(object):
 
 
 def test():
-    data = (('a', 1, 'ATAG'), ('a', 2, 'AAGT'), ('b', 1, 'ATAG'), ('c', 1, 'ATAG'), ('g', 2, "AAGT"))
+    data = (
+        ("a", 1, "ATAG"),
+        ("a", 2, "AAGT"),
+        ("b", 1, "ATAG"),
+        ("c", 1, "ATAG"),
+        ("g", 2, "AAGT"),
+    )
     family_objects = []
     for i in data:
         obj = Families(i[0], i[1])
@@ -46,5 +52,5 @@ def test():
     print(family_objects[1].get_genetic_info())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test()

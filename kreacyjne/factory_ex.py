@@ -20,15 +20,17 @@ class GameFactory(ABC):
 class BoardGame(Game):
     pass
 
+
 class PCGame(Game):
     pass
+
 
 class MonopolyFactory(GameFactory):
     pass
 
+
 class ValorantFactory(GameFactory):
     pass
-
 
 
 factory = MonopolyFactory()

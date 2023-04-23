@@ -1,6 +1,4 @@
-
-
-class _MyClass():
+class _MyClass:
     pass
 
 

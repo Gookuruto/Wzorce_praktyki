@@ -3,6 +3,7 @@
 import random
 from abc import ABC, abstractmethod
 
+
 ## Strategy interface
 class Strategy(ABC):
     @abstractmethod
@@ -10,24 +11,29 @@ class Strategy(ABC):
         """Select Concrete strategy."""
         pass
 
+
 ## Concrete strategies
 class Rock(Strategy):
     ## actual application will have the algorithm instead this method
     def selection(self) -> str:
         return "Rock"
 
+
 class Paper(Strategy):
     def selection(self) -> str:
         return "Paper"
+
 
 class Scissors(Strategy):
     def selection(self) -> str:
         return "Scissors"
 
+
 class Random(Strategy):
     def selection(self) -> str:
         options = ["Rock", "Paper", "Scissors"]
         return random.choice(options)
+
 
 ## Context class
 class Game:
@@ -67,6 +73,7 @@ class Game:
                 print("Player 1 wins!")
             else:
                 print("Player 2 wins!")
+
 
 ## Example application
 ## PLayer 1 can select his strategy

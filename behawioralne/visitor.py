@@ -5,7 +5,6 @@
 
 
 class Courses_At_GFG:
-
     def accept(self, visitor):
         visitor.visit(self)
 
@@ -22,13 +21,16 @@ class Courses_At_GFG:
 """Concrete Courses_At_GFG class: Classes being visited."""
 
 
-class ZDPYTpol68(Courses_At_GFG): pass
+class ZDPYTpol68(Courses_At_GFG):
+    pass
 
 
-class STL(Courses_At_GFG): pass
+class STL(Courses_At_GFG):
+    pass
 
 
-class DSA(Courses_At_GFG): pass
+class DSA(Courses_At_GFG):
+    pass
 
 
 """ Abstract Visitor class for Concrete Visitor classes:
@@ -37,7 +39,6 @@ class DSA(Courses_At_GFG): pass
 
 
 class Visitor:
-
     def __str__(self):
         return self.__class__.__name__
 

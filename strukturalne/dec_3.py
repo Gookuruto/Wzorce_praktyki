@@ -36,7 +36,7 @@ class BoldWrapper:
         return f"<b>{self._component.render()}</b>"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     before_gfg = WrittenText("Example Text")
     after_gfg = ItalicWrapper(UnderlineWrapper(BoldWrapper(before_gfg)))
 

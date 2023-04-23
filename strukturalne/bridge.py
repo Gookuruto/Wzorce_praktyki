@@ -1,5 +1,5 @@
 class AbstractInterface:
-    """ Target interface.
+    """Target interface.
     This is the target interface, that clients use.
     """
 
@@ -8,7 +8,7 @@ class AbstractInterface:
 
 
 class Bridge(AbstractInterface):
-    """ Bridge class.
+    """Bridge class.
 
     This class forms a bridge between the target
     interface and background implementation.
@@ -19,7 +19,7 @@ class Bridge(AbstractInterface):
 
 
 class UseCase1(Bridge):
-    """ Variant of the target interface.
+    """Variant of the target interface.
     This is a variant of the target Abstract interface.
     It can do something little differently and it can
     also use various background implementations through
@@ -30,10 +30,7 @@ class UseCase1(Bridge):
         self.__implementation = implementation
 
     def someFunctionality(self):
-        print(
-        "UseCase1: ",
-        self.__implementation.anotherFunctionality()
-        )
+        print("UseCase1: ", self.__implementation.anotherFunctionality())
 
 
 class UseCase2(Bridge):
@@ -41,13 +38,11 @@ class UseCase2(Bridge):
         self.__implementation = implementation
 
     def someFunctionality(self):
-        print("UseCase2: ",
-        self.__implementation.anotherFunctionality()
-              )
+        print("UseCase2: ", self.__implementation.anotherFunctionality())
 
 
 class ImplementationInterface:
-    """ Interface for the background implementation.
+    """Interface for the background implementation.
     This class defines how the Bridge communicates
     with various background implementations.
     """
@@ -57,12 +52,12 @@ class ImplementationInterface:
 
 
 class Linux(ImplementationInterface):
-    """ Concrete background implementation.
+    """Concrete background implementation.
     A variant of background implementation, in this
     case for Linux!
     """
 
-    def anotherFunctionality(self) ->None:
+    def anotherFunctionality(self) -> None:
         print("Linux!")
 
 

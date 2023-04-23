@@ -11,13 +11,14 @@ class Coffee:
         milk = None
         additional_ingredients = []
 
-class Barista:
 
+class Barista:
     def __init__(self):
         """Get a builder Here"""
         self.manual = None
 
-    def set_manual(self,manual):
+    def set_manual(self, manual):
         self.manual = manual
+
     def create_coffee(self):
         pass

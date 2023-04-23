@@ -2,7 +2,7 @@ import json
 from typing import Dict
 
 
-class Flyweight():
+class Flyweight:
     """
     The Flyweight stores a common portion of the state (also called intrinsic
     state) that belongs to multiple real business entities. The Flyweight
@@ -19,7 +19,7 @@ class Flyweight():
         print(f"Flyweight: Displaying shared ({s}) and unique ({u}) state.", end="")
 
 
-class FlyweightFactory():
+class FlyweightFactory:
     """
     The Flyweight Factory creates and manages the Flyweight objects. It ensures
     that flyweights are shared correctly. When the client requests a flyweight,
@@ -62,8 +62,12 @@ class FlyweightFactory():
 
 
 def add_car_to_police_database(
-    factory: FlyweightFactory, plates: str, owner: str,
-    brand: str, model: str, color: str
+    factory: FlyweightFactory,
+    plates: str,
+    owner: str,
+    brand: str,
+    model: str,
+    color: str,
 ) -> None:
     print("\n\nClient: Adding a car to database.")
     flyweight = factory.get_flyweight([brand, model, color])
@@ -78,21 +82,21 @@ if __name__ == "__main__":
     initialization stage of the application.
     """
 
-    factory = FlyweightFactory([
-        ["Chevrolet", "Camaro2018", "pink"],
-        ["Mercedes Benz", "C300", "black"],
-        ["Mercedes Benz", "C500", "red"],
-        ["BMW", "M5", "red"],
-        ["BMW", "X6", "white"],
-    ])
+    factory = FlyweightFactory(
+        [
+            ["Chevrolet", "Camaro2018", "pink"],
+            ["Mercedes Benz", "C300", "black"],
+            ["Mercedes Benz", "C500", "red"],
+            ["BMW", "M5", "red"],
+            ["BMW", "X6", "white"],
+        ]
+    )
 
     factory.list_flyweights()
 
-    add_car_to_police_database(
-        factory, "CL234IR", "James Doe", "BMW", "M5", "red")
+    add_car_to_police_database(factory, "CL234IR", "James Doe", "BMW", "M5", "red")
 
-    add_car_to_police_database(
-        factory, "CL234IR", "James Doe", "BMW", "X1", "red")
+    add_car_to_police_database(factory, "CL234IR", "James Doe", "BMW", "X1", "red")
 
     print("\n")
 

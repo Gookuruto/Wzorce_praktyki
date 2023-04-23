@@ -2,14 +2,12 @@ from abc import ABC, abstractmethod
 
 
 class AbstractCar(ABC):
-
     @abstractmethod
     def get_body_type(self):
         pass
 
 
 class SedanCar(AbstractCar):
-
     def __init__(self):
         self.body = "Sedan"
 
@@ -18,7 +16,6 @@ class SedanCar(AbstractCar):
 
 
 class HatchbackCar(AbstractCar):
-
     def __init__(self):
         self.body = "Hatchback"
 
@@ -27,7 +24,6 @@ class HatchbackCar(AbstractCar):
 
 
 class PickupCar(AbstractCar):
-
     def __init__(self):
         self.body = "Pick-up"
 
@@ -35,8 +31,7 @@ class PickupCar(AbstractCar):
         return f"Body Type: {self.body}"
 
 
-class CarFactory():
-
+class CarFactory:
     def build_car(self, plan):
         try:
             if plan == "Sedan":
@@ -63,6 +58,7 @@ class HatchbackCarFactory(CarFactory):
 class PickupFactory(CarFactory):
     def build_car(self, plan):
         return PickupCar()
+
 
 if __name__ == "__main__":
     factory = CarFactory()

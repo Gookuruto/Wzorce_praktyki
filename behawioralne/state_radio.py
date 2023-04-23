@@ -77,8 +77,7 @@ class Radio:
 
 """ main method """
 if __name__ == "__main__":
-
-    """ create radio object"""
+    """create radio object"""
     radio = Radio()
     actions = [radio.scan] * 3 + [radio.toggle_amfm] + [radio.scan] * 3
     actions *= 2

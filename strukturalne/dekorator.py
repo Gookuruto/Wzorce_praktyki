@@ -1,5 +1,5 @@
 class WrittenText:
-    """Represents a Written text """
+    """Represents a Written text"""
 
     def __init__(self, text):
         self._text = text
@@ -44,7 +44,7 @@ class BoldWrapper(WrittenText):
 
 """ main method """
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     before_gfg = WrittenText("Example Text")
     after_gfg = BoldWrapper(UnderlineWrapper(before_gfg))
 

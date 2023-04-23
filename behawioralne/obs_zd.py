@@ -48,7 +48,6 @@ class Fan(Observer):
         print(f"after: {self._observer_state}")
 
 
-
 if __name__ == "__main__":
     subject = Celebrity()
     concrete_observer = Fan()

@@ -49,23 +49,25 @@ class Car:
     def specification(self):
         print("body: %s" % self.__body.shape)
         print("engine horsepower: %d" % self.__engine.horsepower)
-        print("tire size: %d\'" % self.__wheels[0].size)
+        print("tire size: %d'" % self.__wheels[0].size)
         print(f"number of wheels: {len(self.__wheels)}")
 
 
 class Builder(ABC):
     @abc.abstractmethod
-    def getWheel(self): pass
+    def getWheel(self):
+        pass
 
     @abc.abstractmethod
-    def getEngine(self): pass
+    def getEngine(self):
+        pass
 
     @abc.abstractmethod
-    def getBody(self): pass
+    def getBody(self):
+        pass
 
 
 class JeepBuilder(Builder):
-
     def getWheel(self):
         wheel = Wheel()
         wheel.size = 22
@@ -101,8 +103,8 @@ class JeepBuilder(Builder):
 
         return car
 
-class SubaruBuilder(Builder):
 
+class SubaruBuilder(Builder):
     def getBody(self):
         body = Body()
         body.shape = "Sedan"
@@ -131,11 +133,13 @@ class Engine:
 class Body:
     shape = None
 
-def change_car(car:Car):
+
+def change_car(car: Car):
     eng = Engine()
     eng.horsepower = 15
     car.setEngine(eng)
     return car
+
 
 def main():
     jeepBuilder = SubaruBuilder()  # initializing the class
@@ -159,6 +163,7 @@ def main():
     #     print("-------------------------------")
     #     i.specification()
     print("")
+
 
 if __name__ == "__main__":
     main()

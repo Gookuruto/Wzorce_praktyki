@@ -31,6 +31,7 @@ class DirectorThreeWheels:
             car.attach_wheel(self.__builder.build_wheel())
         return car
 
+
 class Car:
     def __init__(self):
         self.__wheels = []
@@ -72,7 +73,6 @@ class Builder(ABC):
 
 
 class JeepBuilder(Builder):
-
     def build_body(self):
         body = Body()
         body.shape = "SUV"

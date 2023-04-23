@@ -6,7 +6,7 @@ Abstractions should not depend on details. Details should depend on abstractions
 from abc import ABC, abstractmethod
 
 
-class LightBulb():
+class LightBulb:
     def turn_on(self):
         print("LightBulb: Turned on.")
 
@@ -50,12 +50,14 @@ class LightBulb(Switchable):
     def turn_off(self):
         print("LightBulb: Turned off.")
 
+
 class Komputer(Switchable):
     def turn_on(self):
         print("Komputer: Turned on.")
 
     def turn_off(self):
         print("Komputer: Turned off.")
+
 
 class PowerSwitch:
     def __init__(self, l: Switchable):

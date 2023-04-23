@@ -37,7 +37,8 @@ class Motorcycle:
         speed = random_num
         self.speed = self.speed + speed
         print(
-            f"The speed of the motorcycle is {self.speed} mph after applying the brakes")
+            f"The speed of the motorcycle is {self.speed} mph after applying the brakes"
+        )
 
     def assign_rider(self, rider_name):
         self.rider = rider_name
@@ -55,10 +56,10 @@ class MotorcycleAdapter:
         self.bike.pull_brake_lever()
 
     def assign_driver(self, driver_name):
-       self.bike.assign_rider(driver_name)
+        self.bike.assign_rider(driver_name)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     car = Car()
     bike = Motorcycle()
     adapted_bike = MotorcycleAdapter(bike)
