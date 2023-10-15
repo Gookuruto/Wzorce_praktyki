@@ -6,17 +6,16 @@ If a class has more than one responsibility, it becomes coupled.
 A change to one responsibility results to modification of the other responsibility.
 """
 
-
-class Animal:
-    def __init__(self, name: str):
-        self.name = name
-
-    def get_name(self) -> str:
-        pass
-
-    def save(self, animal: Animal):
-        pass
-
+# class Animal:
+#     def __init__(self, name: str):
+#         self.name = name
+#
+#     def get_name(self) -> str:
+#         pass
+#
+#     def save(self, animal: Animal):
+#         pass
+#
 
 """
 The Animal class violates the SRP.
@@ -31,22 +30,44 @@ To make this conform to SRP, we create another class that will handle the sole r
 
 
 class Animal:
-    def __init__(self, name: str):
+    def __init__(self, name: str, age: int):
         self.name = name
+        self.age = age
 
     def get_name(self):
         pass
 
+    def get_age(self):
+        return self.age
+
+    def __repr__(self):
+        return f"Animal: name: {self.name} age: {self.age}"
+
 
 class AnimalDB:
-    def get_animal(self) -> Animal:
-        pass
+    def __init__(self):
+        self.database_path = "animals.csv"
+
+    def get_animal(self, number: int) -> Animal:
+        with open(self.database_path, "r") as db:
+            line = db.read().split()[number]
+            return Animal(line.split(",")[0], line.split(",")[1])
 
     def save(self, animal: Animal):
-        pass
+        with open(self.database_path, "a") as db:
+            db.write(f"\n{animal.name},{animal.age}")
 
 
 """
 When designing our classes, we should aim to put related features together, 
 so whenever they tend to change they change for the same reason. 
-And we should try to separate features if they will change for different reasons. - Steve Fenton
+And we should try to separate features if they will change for different reasons. - Steve Fenton"""
+
+db = AnimalDB()
+
+pies = db.get_animal(1)
+
+print(pies)
+print(pies.name)
+
+db.save(Animal("Elephant", 50))

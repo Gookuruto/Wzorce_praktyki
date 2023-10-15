@@ -2,6 +2,9 @@
 import abc
 from abc import ABC
 from typing import Set
+import bad_practice
+
+bad_practice.TAU = 10
 
 
 class Observer(ABC):

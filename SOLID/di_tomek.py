@@ -20,7 +20,6 @@ class Kasia(IPiersiasta):
 
 
 class Asia(IBlondynka):
-
     def blond(self):
         return "blond"
 

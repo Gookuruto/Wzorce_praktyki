@@ -8,6 +8,7 @@ class Singleton(object):
 
 
 class MyClass(Singleton):
+
     def __init__(self):
         self.x = 100
         self.y = 200
@@ -19,7 +20,10 @@ class MyClass(Singleton):
 x = MyClass()
 y = MyClass()
 
+print(x)
+print(y)
 x.x = 300
 print(x)
 print(y)
 print(x == y)
+print(x is y)

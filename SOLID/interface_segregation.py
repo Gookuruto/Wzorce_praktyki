@@ -8,8 +8,8 @@
 # import abc
 # import math
 # from abc import ABC
-#
-#
+
+
 # class IShape:
 #     def draw_square(self):
 #         raise NotImplementedError
@@ -19,8 +19,8 @@
 #
 #     def draw_circle(self):
 #         raise NotImplementedError
-#
-#
+
+
 # """
 # This interface draws squares, circles, rectangles. class Circle, Square or Rectangle implementing the IShape
 # interface must define the methods draw_square(), draw_rectangle(), draw_circle().
@@ -58,7 +58,7 @@
 #
 #     def draw_circle(self):
 #         pass
-#
+
 #
 # """
 # It’s quite funny looking at the code above. class Rectangle implements methods (draw_circle and draw_square) it has no use of,
@@ -98,51 +98,60 @@ from abc import ABC
 
 
 class IShape(ABC):
-
     @abc.abstractmethod
     def area(self):
         pass
 
-    def circumference(self):
-        print("Jestem z klasy abstrakcyjnej.")
 
+class IReadDBRepository(ABC):
 
-class IDBRepository(ABC):
-    @abc.abstractmethod
-    def save_to_db(self, obj):
-        pass
 
     @abc.abstractmethod
     def get_from_db(self, id: int):
         pass
 
+
+
+class IEditDBRepository(ABC):
     @abc.abstractmethod
     def update_object(self, updated_object):
+        pass
+
+    @abc.abstractmethod
+    def save_to_db(self, obj):
         pass
 
 
 class IDrawer(ABC):
     @abc.abstractmethod
-    def draw(self, shape: IShape):
+    def draw(self):
         pass
 
 
-class Circle(IShape):
+class Circle(IShape,IDrawer):
     def area(self):
-        print(math.pi * 2 ** 2)
+        print(math.pi * 2**2)
 
     def draw(self):
         print("Rysuje kolo.")
 
 
-class Square(IShape):
+class Square(IShape,IDrawer):
+    def area(self):
+        print(10*10)
+
     def draw(self):
-        pass
+        print("rysuje kwadrat")
 
 
 class Rectangle(IShape):
-    def draw(self):
-        pass
+    def area(self):
+        print(10 * 5)
+
+def rysownik(obiekt_rysowany: IDrawer):
+    obiekt_rysowany.draw()
+
+rysownik(Square())
 
 
 """
@@ -150,20 +159,14 @@ We can then use the I -interfaces to create Shape specifics like Semi Circle, Ri
 """
 
 
-class ToyParcelRepository(IDBRepository):
-
-    def update_object(self, updated_object):
-        pass
+class ToyParcelRepository(IReadDBRepository):
 
     def get_from_db(self, id: int):
         return f"parcel id: {id}"
 
-    def save_to_db(self, obj):
-        pass
-
 
 class ParcelService:
-    def __init__(self, repositrory: IDBRepository):
+    def __init__(self, repositrory: IReadDBRepository):
         self.db = repositrory
 
     def send_parcel(self, parcel_id: int):

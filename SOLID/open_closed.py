@@ -12,7 +12,7 @@
 #         pass
 #
 #
-# animals = [Animal("lion"), Animal("mouse")]
+# animals = [Animal("lion"), Animal("mouse"),Animal("dog")]
 #
 #
 # def animal_sound(animals: list):
@@ -46,8 +46,8 @@
 #             print("squeak")
 #         elif animal.name == "snake":
 #             print("hiss")
-#
-#
+
+
 # animal_sound(animals)
 #
 # """
@@ -55,38 +55,42 @@
 # """
 #
 #
-# class Animal:
-#     def __init__(self, name: str):
-#         self.name = name
+class Animal:
+    def __init__(self, name: str):
+        self.name = name
+
+    def get_name(self) -> str:
+        pass
+
+    def make_sound(self):
+        pass
+
+
+class Lion(Animal):
+    def make_sound(self):
+        return "roar"
+
+
+class Mouse(Animal):
+    def make_sound(self):
+        return "squeak"
+
+
+class Snake(Animal):
+    def make_sound(self):
+        return "hiss"
+
+class Dog(Animal):
+    def make_sound(self):
+        return "woof woof"
 #
-#     def get_name(self) -> str:
-#         pass
 #
-#     def make_sound(self):
-#         pass
-#
-#
-# class Lion(Animal):
-#     def make_sound(self):
-#         return "roar"
-#
-#
-# class Mouse(Animal):
-#     def make_sound(self):
-#         return "squeak"
-#
-#
-# class Snake(Animal):
-#     def make_sound(self):
-#         return "hiss"
-#
-#
-# def animal_sound(animals: list):
-#     for animal in animals:
-#         print(animal.make_sound())
-#
-#
-# animal_sound(animals)
+def animal_sound(animals: list):
+    for animal in animals:
+        print(animal.make_sound())
+
+animals = [Lion("Simba"),Mouse("Jerry"),Snake("Kaa"),Dog("Snoopy")]
+animal_sound(animals)
 #
 # """
 # Animal now has a virtual method make_sound. We have each animal extend the Animal class and implement the virtual make_sound method.
